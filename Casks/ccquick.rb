@@ -11,6 +11,11 @@ cask "ccquick" do
 
   app "CCQuick.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/CCQuick.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/CCQuick",
     "~/Library/Preferences/com.ccquick.app.plist",
