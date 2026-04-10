@@ -1,11 +1,11 @@
 cask "ccquick" do
   version "1.0.0"
-  sha256 "b9005cfb0aebe1cb7fa451451801188f89ff56af1d5171d55b02ea7ed2c6d2ff"
+  sha256 "ea53b732be6ba41017e0b5c7af0f41833b3aef7494c9c8fae9c8ada38713a3ed"
 
-  url "https://github.com/hjmolla/ccquick/releases/download/v#{version}/CCQuick-#{version}.dmg"
+  url "https://github.com/hyojoongit/ccquick/releases/download/v#{version}/CCQuick-#{version}.dmg"
   name "CCQuick"
   desc "Quick access to Claude Code from anywhere on your Mac"
-  homepage "https://github.com/hjmolla/ccquick"
+  homepage "https://github.com/hyojoongit/ccquick"
 
   depends_on macos: ">= :sequoia"
 
@@ -13,7 +13,8 @@ cask "ccquick" do
 
   postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/CCQuick.app"]
+                   args: ["-cr", "#{appdir}/CCQuick.app"],
+                   sudo: false
   end
 
   zap trash: [
